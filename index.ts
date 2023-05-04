@@ -1,6 +1,6 @@
 import express from 'express';
 import {AppDataSource} from "./src/data-source";
-// import {router} from "./src/routers/router";
+import {router} from "./src/router/router";
 import cors from 'cors';
 const app = express();
 AppDataSource.initialize().then(() => {
@@ -8,7 +8,7 @@ AppDataSource.initialize().then(() => {
 });
 app.use(express.json());
 app.use(cors())
-// app.use('', router);
+app.use('', router);
 app.listen(8080, () => {
     console.log('Server is running !')
 });
