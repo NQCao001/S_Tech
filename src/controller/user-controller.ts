@@ -27,20 +27,6 @@ export class UserController {
             })
         }
     }
-
-    loginWithFb = async (req: Request, res: Response) => {
-        try {
-
-                let newUser = await this.userService.createUser(req.body);
-                let user = {check: true, authenticUser: []}
-                user.authenticUser.push(newUser)
-                await res.json({user: user})
-
-        } catch (e) {
-            console.log(e.message)
-        }
-    }
-
     register = async (req: Request, res: Response) => {
         try {
             let checkRegister = await this.userService.checkRegister(req.body);
